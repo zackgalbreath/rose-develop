@@ -41,6 +41,10 @@ if(enable-cuda)
   add_subdirectory(CudaTests)
 endif()
 
+if(enable-openmp)
+  add_subdirectory(OpenMP_tests)
+endif()
+
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
    add_subdirectory(C_tests)
    add_subdirectory(C89_std_c89_tests)
@@ -60,10 +64,6 @@ else()
   endif()
 
   if(NOT "${EDG_VERSION}" EQUAL "4.3")
-    if(NOT enable-java)
-      add_subdirectory(OpenMP_tests)
-    endif()
-
     if(enable-fortran)
       add_subdirectory(Fortran_tests)
       # DQ (7/14/2013): Temporarily commented out this test to evaluate

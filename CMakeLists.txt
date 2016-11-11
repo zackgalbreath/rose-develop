@@ -584,6 +584,16 @@ endif()
 
 set(enable-ofp-version "0.8.3" CACHE STRING "version number for OFP")
 
+option(enable-openmp "Enable OpenMP Runtime support?" OFF)
+if (enable-openmp)
+  find_package(OpenMP REQUIRED)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+  if (enable-fortran)
+    set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} ${OpenMP_Fortran_FLAGS}")
+  endif()
+endif()
+
 option(enable-ppl "Support for Parma Polyhedral Library" OFF)
 if(enable-ppl)
   find_path(with-ppl "include/ppl.h"
