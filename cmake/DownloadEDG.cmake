@@ -61,47 +61,21 @@ endif()
 set(EDG_SIG_OUTPUT
   "${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend/edg-generate-sig.output"
 )
-#ADD_CUSTOM_COMMAND(TARGET EDG_tarball
-#  PRE_BUILD
-#  COMMAND "${CMAKE_SOURCE_DIR}/scripts/edg-generate-sig" "${CMAKE_SOURCE_DIR}" " ${CMAKE_BINARY_DIR}" " >" ${EDG_SIG_OUTPUT}
-#  COMMAND "cat" ${EDG_SIG_OUTPUT}  ">" signature
-#  DEPENDS roseutil rosetta_generated "${CMAKE_SOURCE_DIR}/scripts/edg-generate-sig"
-#)
-add_custom_target(get_EDG_name
-#  COMMENT "EDG NAME: ${CMAKE_SOURCE_DIR}/scripts/edg-generate-sig ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}
-#    > ${EDG_SIG_OUTPUT}"
-  COMMAND ${CMAKE_SOURCE_DIR}/scripts/edg-generate-sig ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}
-    > ${EDG_SIG_OUTPUT}
+
+add_custom_command(
+  OUTPUT ${EDG_SIG_OUTPUT}
+  COMMAND ${CMAKE_SOURCE_DIR}/scripts/edg-generate-sig ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} > ${EDG_SIG_OUTPUT}
   DEPENDS roseutil rosetta_generated)
-#set(signature "")
+add_custom_target(EDGSignature DEPENDS ${EDG_SIG_OUTPUT})
 
-add_custom_target( EDGSignature
-#    COMMENT "EDGSignature arguments ${EDG_SIG_OUTPUT} ${Local_EDG_Version} ${platform} ${compiler}"
-    COMMAND ${CMAKE_COMMAND} -P ${PROJECT_SOURCE_DIR}/cmake/ProcessEDGBinary.cmake ${EDG_SIG_OUTPUT} ${Local_EDG_Version} ${platform} ${compiler} 
-    DEPENDS get_EDG_name
-)
+add_custom_command(
+  OUTPUT ${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend/EDG/.libs/libroseEDG.a
+  COMMAND ${CMAKE_COMMAND} -P ${PROJECT_SOURCE_DIR}/cmake/ProcessEDGBinary.cmake ${EDG_SIG_OUTPUT} ${Local_EDG_Version} ${platform} ${compiler}
+  DEPENDS EDGSignature)
+add_custom_target(DownloadEDG
+  DEPENDS ${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend/EDG/.libs/libroseEDG.a)
 
-#set(tarball_site "http://www.rosecompiler.org/edg_binaries")
-#set(tarball_filename "roseBinaryEDG-${Local_EDG_Version}-${platform}-${compiler}-${signature}.tar.gz")
-
-#add_custom_target(EDG_tarball
-#COMMAND wget ${tarball_site}/roseBinaryEDG-${Local_EDG_Version}-${platform}-${compiler}-${signature}.tar.gz ${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend/EDG.tar.gz
-#COMMENT "Untar EDG"
-#COMMAND tar zxvf ${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend/EDG.tar.gz -C ${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend 
-#DEPENDS EDGSignature
-#)
-#ExternalProject_Add(EDG_tarball
-#  COMMENT "EDG signature = ${signature}"
-#  URL ${tarball_site}/roseBinaryEDG-${Local_EDG_Version}-${platform}-${compiler}-${signature}.tar.gz
-#  SOURCE_DIR ${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend/EDG
-#  CONFIGURE_COMMAND ""
-#  BUILD_COMMAND ""
-#  INSTALL_COMMAND ""
-#  DEPENDS EDGSignature 
-#  )
-
-add_library(EDG STATIC IMPORTED)
-add_dependencies(EDG EDGSignature)
+add_library(EDG STATIC IMPORTED GLOBAL)
 set_property(TARGET EDG PROPERTY IMPORTED_LOCATION
   ${CMAKE_BINARY_DIR}/src/frontend/CxxFrontend/EDG/.libs/libroseEDG.a)
-
+add_dependencies(EDG DownloadEDG)

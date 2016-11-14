@@ -382,21 +382,8 @@ else()
   set(edg_lib "")
   set(BINARY_EDG 1)
   if (NOT WIN32)
-    if(EXISTS "${PROJECT_BINARY_DIR}/src/frontend/CxxFrontend/EDG.tar.gz")
-      execute_process(
-      COMMAND "tar" "-zxvf" "-C" "${PROJECT_BINARY_DIR}/src/frontend/CxxFrontend/EDG")
-    else()
-    # no need to display this message after the file has been downloaded
-      if(NOT EXISTS "${PROJECT_BINARY_DIR}/src/frontend/CxxFrontend/EDG/.libs")
-        message(WARNING
-          "At build time, CMake will attempt to download a required library "
-          "tarball.\n"
-          "Please note that this EDG binary tarball is currently only available "
-          "for the GCC compiler.\n" )
-      endif()
-      include(${PROJECT_SOURCE_DIR}/cmake/DownloadEDG.cmake)
-      set(edg_lib EDG)
-    endif()
+    include(${PROJECT_SOURCE_DIR}/cmake/DownloadEDG.cmake)
+    set(edg_lib EDG)
   endif()
 endif()
 
