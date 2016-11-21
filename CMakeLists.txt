@@ -507,7 +507,7 @@ option(disable-binary-analysis-tests
   "Disable tests of ROSE binary analysis code" ON)
 
 option(disable-tests-directory
-  "Disable compilation and testing of the ROSE/tests directory" OFF)
+  "Disable compilation and testing of the ROSE/tests directory" ON)
 
 option(disable-tutorial-directory
   "Disable compilation and testing of the ROSE/tutorial directory" OFF)
