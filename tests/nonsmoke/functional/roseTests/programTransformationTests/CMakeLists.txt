@@ -1,5 +1,5 @@
 #add_subdirectory(extractFunctionArgumentsTest)
-#add_subdirectory(singleStatementToBlockNormalization)
+add_subdirectory(singleStatementToBlockNormalization)
 
 #-------------------------------------------------------------------------------
 # preTest

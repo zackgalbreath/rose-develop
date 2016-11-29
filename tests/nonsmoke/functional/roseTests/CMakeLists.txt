@@ -9,13 +9,18 @@ if(enable-c)
   add_subdirectory (astRewriteTests)
   add_subdirectory (astSymbolTableTests)
   add_subdirectory (astTokenStreamTests)
+  add_subdirectory (astSnippetTests)
   if (NOT CYGWIN)
     add_subdirectory (programTransformationTests)
   endif()
   #add_subdirectory (graph_tests)
   #add_subdirectory (mergeTraversal_tests)
-  #add_subdirectory (astLValueTests)
-  #add_subdirectory (abstractMemoryObjectTests)
+  add_subdirectory (astLValueTests)
+  add_subdirectory (abstractMemoryObjectTests)
+
+  if (NOT ROSE_USE_SANITIZER)
+    add_subdirectory (ROSETTA)
+  endif ()
 
   if (NOT with-insure)
     #add_subdirectory (roseHPCToolkitTests)
@@ -31,15 +36,15 @@ if(enable-c)
 
     # TOO (2/17/11): Errors with Tensilica's Xtensa compilers.
     if (NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Xtensa")
-      #add_subdirectory (astFileIOTests)
+      add_subdirectory (astFileIOTests)
 
       if (NOT with-insure)
-        #add_subdirectory (astInterfaceTests)
-        #add_subdirectory (astInliningTests)
-        #add_subdirectory (ompLoweringTests)
-        #add_subdirectory (programAnalysisTests)
-        #add_subdirectory (astOutliningTests)
-        #add_subdirectory (loopProcessingTests)
+        add_subdirectory (astInterfaceTests)
+        add_subdirectory (astInliningTests)
+        add_subdirectory (ompLoweringTests)
+        add_subdirectory (programAnalysisTests)
+        add_subdirectory (astOutliningTests)
+        add_subdirectory (loopProcessingTests)
         #add_subdirectory (fileLocation_tests)
       endif() #insure
     endif() #xtensa
@@ -47,7 +52,7 @@ if(enable-c)
 endif() # C/C++
 
 if (enable-php)
-  #add_subdirectorY(PHPTests)
+  add_subdirectory(PHPTests)
 endif()
 
 if (NOT with-insure)

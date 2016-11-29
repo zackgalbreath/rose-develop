@@ -59,6 +59,8 @@ else()
     endif()
   endif()
 
+  add_subdirectory(FailSafe_tests)
+
   if(NOT "${EDG_VERSION}" EQUAL "4.3")
     if(NOT enable-java)
       add_subdirectory(OpenMP_tests)
@@ -66,6 +68,7 @@ else()
 
     if(enable-fortran)
       add_subdirectory(Fortran_tests)
+      add_subdirectory(mixLanguage_tests)
       # DQ (7/14/2013): Temporarily commented out this test to evaluate
       # progress on tests/nonsmoke/functional/CompileTests directory.
       #add_subdirectory(CAF2_tests)
@@ -100,6 +103,11 @@ else()
         add_subdirectory(NewEDGInterface_C_tests)
       endif()
       add_subdirectory(UnparseHeadersTests)
+      add_subdirectory(systemc_tests)
+
+      if (NOT ROSE_USE_SANITIZER)
+        add_subdirectory(STL_tests)
+      endif()
 
       if(NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Xtensa")
         add_subdirectory(mergeAST_tests)

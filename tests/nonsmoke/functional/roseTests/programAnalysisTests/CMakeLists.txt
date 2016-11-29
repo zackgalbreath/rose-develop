@@ -1,1 +1,11 @@
 include(tests.cmake)
+
+add_subdirectory(defUseAnalysisTests)
+add_subdirectory(generalDataFlowAnalysisTests)
+add_subdirectory(ssa_UnfilteredCfg_Test)
+add_subdirectory(staticInterproceduralSlicingTests)
+add_subdirectory(staticSingleAssignmentTests)
+add_subdirectory(testCallGraphAnalysis)
+add_subdirectory(typeTraitTests)
+add_subdirectory(variableLivenessTests)
+add_subdirectory(variableRenamingTests)
