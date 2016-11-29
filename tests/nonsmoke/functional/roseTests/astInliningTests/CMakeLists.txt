@@ -1,1 +1,1 @@
-include(tests.cmake)
+#include(tests.cmake)
