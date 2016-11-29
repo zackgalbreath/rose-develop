@@ -66,9 +66,6 @@ set(TESTCODES
 
 #-------------------------------------------------------------------------------
 # Token Stream Mapping
-add_executable(tokenStreamMapping tokenStreamMapping.C)
-target_link_libraries(tokenStreamMapping ROSE_DLL EDG ${link_with_libraries})
-
 foreach(file_to_test ${TESTCODES})
   add_test(
     NAME tokenStreamMapping_${file_to_test}
@@ -76,10 +73,6 @@ foreach(file_to_test ${TESTCODES})
       ${CMAKE_SOURCE_DIR}/tests/nonsmoke/functional/CompileTests/C_tests/${file_to_test}
   )
 endforeach()
-
-add_executable(testUnparsingUsingTokenStream testUnparsingUsingTokenStream.C)
-target_link_libraries(testUnparsingUsingTokenStream
-  ROSE_DLL EDG ${link_with_libraries})
 
 # Test code using -rose:verbose 2 to trigger output of evaluation files (*.c and *.dot files).
 add_test(
@@ -89,7 +82,4 @@ add_test(
     -c ${CMAKE_CURRENT_SOURCE_DIR}/input_testUnparsingUsingTokenStream.c
 )
 
-install(
-  TARGETS tokenStreamMapping testUnparsingUsingTokenStream
-  DESTINATION bin)
 include(tests.cmake)

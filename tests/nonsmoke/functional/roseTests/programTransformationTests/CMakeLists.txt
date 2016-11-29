@@ -4,9 +4,6 @@
 #-------------------------------------------------------------------------------
 # preTest
 
-add_executable(preTest preTest.C)
-target_link_libraries(preTest ROSE_DLL EDG ${link_with_libraries})
-
 set(files_to_test pass1.C pass2.C pass3.C)
 foreach(file_to_test ${files_to_test})
   add_test(
@@ -26,9 +23,6 @@ endforeach()
 #-------------------------------------------------------------------------------
 # patternRewriteTest
 
-add_executable(patternRewriteTest patternRewriteTest.C)
-target_link_libraries(patternRewriteTest ROSE_DLL EDG ${link_with_libraries})
-
 add_test(
   NAME pr_rewrite_test1.C
   COMMAND patternRewriteTest ${CMAKE_CURRENT_SOURCE_DIR}/rewrite_test1.C
@@ -44,10 +38,6 @@ set_tests_properties(pr_rewrite_test1.C_verify
 
 #-------------------------------------------------------------------------------
 # finiteDifferencingTest
-
-add_executable(finiteDifferencingTest finiteDifferencingTest.C)
-target_link_libraries(finiteDifferencingTest
-  ROSE_DLL EDG ${link_with_libraries})
 
 set(files_to_test
   finitediff_test1.C finitediff_test2.C finitediff_test3.C)
@@ -68,12 +58,6 @@ endforeach()
 
 #-------------------------------------------------------------------------------
 # constantFoldingTest
-
-add_executable(constantFoldingTest constantFoldingTest.C)
-target_link_libraries(constantFoldingTest ROSE_DLL EDG ${link_with_libraries})
-
-add_executable(constantFoldingTest2 constantFoldingTest2.C)
-target_link_libraries(constantFoldingTest2 ROSE_DLL EDG ${link_with_libraries})
 
 add_test(
   NAME constantFoldingTest_1
@@ -97,10 +81,6 @@ add_test(
 
 #-------------------------------------------------------------------------------
 # implicitCodeGenerationTest
-
-add_executable(implicitCodeGenerationTest implicitCodeGenerationTest.C)
-target_link_libraries(implicitCodeGenerationTest
-  ROSE_DLL EDG ${link_with_libraries})
 
 set(icg_SWITCHES
   -icg:defaultFunctionGenerator -icg:shortCircuitingTransformation

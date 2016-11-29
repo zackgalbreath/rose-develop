@@ -2,11 +2,6 @@ if (NOT CYGWIN)
   set(TAU_INCLUDES "-I${CMAKE_SOURCE_DIR}/tutorial/TAU_INCLUDE_DIR")
 
   #-----------------------------------------------------------------------------
-  add_executable(testIncludeDirectiveInsertion
-    testIncludeDirectiveInsertion.C)
-  target_link_libraries(testIncludeDirectiveInsertion
-    ROSE_DLL EDG ${link_with_libraries})
-
   add_test(
     NAME IncludeDirectiveInsertion
     COMMAND testIncludeDirectiveInsertion -rose:verbose 0

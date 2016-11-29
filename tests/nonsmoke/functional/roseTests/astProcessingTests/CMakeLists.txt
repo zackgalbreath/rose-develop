@@ -7,9 +7,6 @@
 if (HAVE_SYS_TIME_H)
 
   #-----------------------------------------------------------------------------
-  add_executable(proFunSIG proFunSIG.C)
-  target_link_libraries(proFunSIG ROSE_DLL EDG ${link_with_libraries})
-
   set(proFunSIG_SPECIMENS mf1.C mf3.C mf4.C mf5.C)
   foreach(specimen ${proFunSIG_SPECIMENS})
     add_test(
@@ -95,62 +92,41 @@ if (HAVE_SYS_TIME_H)
   )
 
   #-----------------------------------------------------------------------------
-  add_executable(astTraversalTest astTraversalTest.C)
-  target_link_libraries(astTraversalTest ROSE_DLL EDG ${link_with_libraries})
-
   add_test(
     NAME astTraversalTest_input1C
     COMMAND astTraversalTest -edg:w -c ${CMAKE_CURRENT_SOURCE_DIR}/input1.C
   )
 
   #-----------------------------------------------------------------------------
-  add_executable(strictGraphTest strictGraphTest.C)
-  target_link_libraries(strictGraphTest ROSE_DLL EDG ${link_with_libraries})
-
   add_test(
     NAME strictGraphTest
     COMMAND strictGraphTest
   )
 
   #-----------------------------------------------------------------------------
-  add_executable(strictGraphTest2 strictGraphTest2.C)
-  target_link_libraries(strictGraphTest2 ROSE_DLL EDG ${link_with_libraries})
-
   add_test(
     NAME strictGraphTest2
     COMMAND strictGraphTest2
   )
 
   #-----------------------------------------------------------------------------
-  add_executable(strictGraphTest3 strictGraphTest3.C)
-  target_link_libraries(strictGraphTest3 ROSE_DLL EDG ${link_with_libraries})
-
   add_test(
     NAME strictGraphTest3
     COMMAND strictGraphTest3
   )
 
   #-----------------------------------------------------------------------------
-  add_executable(smtlibParser smtlibParser.C)
-  target_link_libraries(smtlibParser ROSE_DLL EDG ${link_with_libraries})
-
   add_test(
     NAME smtlibParser_test11.C
     COMMAND smtlibParser ${CMAKE_CURRENT_SOURCE_DIR}/test11.C
   )
 
   #-----------------------------------------------------------------------------
-  add_executable(sourcePTP sourcePTP.C)
-  target_link_libraries(sourcePTP ROSE_DLL EDG ${link_with_libraries})
-
   add_test(
     NAME sourcePTP_test14.C
     COMMAND sourcePTP ${CMAKE_CURRENT_SOURCE_DIR}/test14.C)
 
   #-----------------------------------------------------------------------------
-  add_executable(processnew3Down4SgIncGraph2 processnew3Down4SgIncGraph2.C)
-  target_link_libraries(processnew3Down4SgIncGraph2
-    ROSE_DLL EDG ${link_with_libraries})
   set(processnew3Down4SgIncGraph2_SPECIMENS test11.C test12.C test13.C test14.C)
 
   foreach(specimen ${processnew3Down4SgIncGraph2_SPECIMENS})
@@ -161,9 +137,6 @@ if (HAVE_SYS_TIME_H)
   endforeach()
 
   #-----------------------------------------------------------------------------
-  add_executable(processnew3Down4SgIncGraph3 processnew3Down4SgIncGraph3.C)
-  target_link_libraries(processnew3Down4SgIncGraph3
-    ROSE_DLL EDG ${link_with_libraries})
   set(processnew3Down4SgIncGraph3_SPECIMENS test11.C test12.C test13.C test14.C)
 
   set(processnew3Down4SgIncGraph3_SPECIMENS eif.C eif2.C eif3.C eif4.C)
@@ -176,9 +149,6 @@ if (HAVE_SYS_TIME_H)
 
   if (enable-binary-analysis)
     #---------------------------------------------------------------------------
-    add_executable(binaryPaths binaryPaths.C)
-    target_link_libraries(binaryPaths ROSE_DLL EDG ${link_with_libraries})
-
     set(binaryPaths_SPECIMENS t1 t2 t3 t4)
     foreach(specimen ${binaryPaths_SPECIMENS})
       add_test(
@@ -188,9 +158,6 @@ if (HAVE_SYS_TIME_H)
     endforeach()
 
     #---------------------------------------------------------------------------
-    add_executable(bPTP bPTP.C)
-    target_link_libraries(bPTP ROSE_DLL EDG ${link_with_libraries})
-
     set(bPTP_SPECIMENS t1 t2 t3 t4)
     foreach(specimen ${bPTP_SPECIMENS})
       add_test(
