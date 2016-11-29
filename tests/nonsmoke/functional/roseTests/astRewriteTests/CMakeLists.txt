@@ -16,3 +16,4 @@ if (NOT CYGWIN)
 endif()
 
 # the rest of the tests in Makefile.am appeared to be disabled.
+include(tests.cmake)

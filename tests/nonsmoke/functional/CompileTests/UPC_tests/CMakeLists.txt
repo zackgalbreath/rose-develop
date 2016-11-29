@@ -51,3 +51,4 @@ endforeach()
 #    COMMAND ${translator}
 #      ${ROSE_FLAGS} -c ${CMAKE_CURRENT_SOURCE_DIR}/${file_to_test})
 #endforeach()
+include(tests.cmake)

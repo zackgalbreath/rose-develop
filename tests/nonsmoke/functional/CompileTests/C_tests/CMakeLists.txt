@@ -90,3 +90,4 @@ list(APPEND ROSE_FLAGS
   -I${CMAKE_SOURCE_DIR}/src/frontend/SageIII/
   -I${CMAKE_SOURCE_DIR}/src/util/commandlineProcessing)
 compile_test(test2005_168.c)
+include(tests.cmake)

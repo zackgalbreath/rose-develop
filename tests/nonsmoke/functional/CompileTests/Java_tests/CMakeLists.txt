@@ -92,3 +92,4 @@ foreach(file_to_test
   set_tests_properties(${file_to_test}_step2
     PROPERTIES DEPENDS ${file_to_test}_step1)
 endforeach()
+include(tests.cmake)

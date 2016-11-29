@@ -19,6 +19,8 @@ ADD_TEST(
 )
 endif()
 
+include(tests.cmake)
+
 #include $(top_srcdir)/config/Makefile.for.ROSE.includes.and.libs
 #
 ## To keep compile commands tidy, please ONLY put required include flags here.

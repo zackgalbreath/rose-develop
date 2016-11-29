@@ -25,3 +25,4 @@ add_subdirectory(PythonTests)
 ## SUBDIRS = A++Tests P++Tests
 #SUBDIRS = A++Tests AstDeleteTests
 #
+include(tests.cmake)

@@ -58,3 +58,4 @@ foreach(file_to_test ${TESTCODES_FOR_DEFAULT_UNPARSE_FOLDER})
   set_tests_properties(${testName} PROPERTIES DEPENDS prepare_${testName})
 
 endforeach()
+include(tests.cmake)

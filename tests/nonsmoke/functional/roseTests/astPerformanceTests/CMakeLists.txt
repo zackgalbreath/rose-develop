@@ -36,3 +36,4 @@ if (enable-binary-analysis AND HAVE_PTHREAD_H)
     COMMAND astThreadedCreation ${CMAKE_CURRENT_SOURCE_DIR}/tests.conf
   )
 endif()
+include(tests.cmake)

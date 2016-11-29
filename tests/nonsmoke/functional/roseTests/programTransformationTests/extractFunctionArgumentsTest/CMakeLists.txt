@@ -20,3 +20,4 @@ foreach(file_to_test ${ROSE__CXX_TESTS})
     COMMAND normalizationTranslator ${normalizationTranslator_SWITCHES}
       -c ${TESTCODE_DIR}/${file_to_test})
 endforeach()
+include(tests.cmake)

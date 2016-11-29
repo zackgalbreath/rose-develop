@@ -76,3 +76,4 @@ install(TARGETS traversalArray DESTINATION bin)
 #	rm -f *.ti *.ii rose_*.C rose_*.c *.dot test*.o rose_*.o
 #
 #
+include(tests.cmake)

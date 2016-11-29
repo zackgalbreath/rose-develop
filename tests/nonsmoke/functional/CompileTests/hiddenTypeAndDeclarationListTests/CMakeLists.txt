@@ -32,3 +32,5 @@ add_test(
     -DTEST_STRING_MACRO="Thu Apr 14 08:18:33 PDT 2005"
     -c ${CMAKE_CURRENT_SOURCE_DIR}/../Cxx_tests/test2005_56.C
     -o ${CMAKE_CURRENT_BINARY_DIR}/test2005_56.o)
+
+include(tests.cmake)

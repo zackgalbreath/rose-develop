@@ -166,3 +166,5 @@ endforeach()
 list(APPEND ROSE_FLAGS
   -I${CMAKE_SOURCE_DIR}/src/frontend/SageIII/
   -I${CMAKE_SOURCE_DIR}/src/util/commandlineProcessing)
+
+include(tests.cmake)

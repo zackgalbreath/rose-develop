@@ -102,3 +102,4 @@ add_test(
 #	        -I${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/conftest_3.C
 #          -o conftest_configure_test_part_3
 # )
+include(tests.cmake)

@@ -405,3 +405,4 @@ foreach(file_to_test ${F03_TESTCODES_REQUIRED_TO_PASS})
             ${CMAKE_CURRENT_SOURCE_DIR}/${file_to_test})
 endforeach()
 
+include(tests.cmake)

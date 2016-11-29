@@ -30,3 +30,4 @@ foreach(file_to_test ${F77_FIXED_FORMAT_TESTCODES})
     COMMAND testTranslator ${ROSE_FLAGS} -rose:f77 -c
             ${CMAKE_CURRENT_SOURCE_DIR}/${file_to_test})
 endforeach()
+include(tests.cmake)

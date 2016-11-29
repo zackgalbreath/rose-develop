@@ -36,6 +36,8 @@ if(bash)
     COMMAND ${bash} ${CMAKE_SOURCE_DIR}/scripts/policies-checker.sh)
 endif()
 
+include(tests.cmake)
+
 # ${Boost_LIBRARIES}
 #    libastMerge libsageInterface libastTokenStream 
 #    libastHiddenTypeAndDeclarationLists libastVisualization 

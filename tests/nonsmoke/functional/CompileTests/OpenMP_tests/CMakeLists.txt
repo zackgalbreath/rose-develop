@@ -80,3 +80,4 @@ add_test(
   COMMAND parseOmp ${ROSE_FLAGS} ${TESTCODE_INCLUDES}
           -rose:collectAllCommentsAndDirectives
           ${CMAKE_CURRENT_SOURCE_DIR}/macroIds.c)
+include(tests.cmake)

@@ -117,3 +117,4 @@ add_test(
   COMMAND implicitCodeGenerationTest ${icg_SWITCHES}
     -c ${CMAKE_CURRENT_SOURCE_DIR}/inputCode_implicitCodeGenerationTest.C
 )
+include(tests.cmake)

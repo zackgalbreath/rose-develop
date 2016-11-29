@@ -221,3 +221,4 @@ if (HAVE_SYS_TIME_H)
 
 endif()
 
+include(tests.cmake)

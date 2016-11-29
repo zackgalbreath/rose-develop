@@ -226,3 +226,4 @@ set(FORTRAN_FLAGS -rose:skip_syntax_check -rose:skipfinalCompileStep
 foreach(F03_test ${F03_TESTCODES})
   fortran_test(${F03_test})
 endforeach()
+include(tests.cmake)

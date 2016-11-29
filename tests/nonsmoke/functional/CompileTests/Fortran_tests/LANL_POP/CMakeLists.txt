@@ -266,3 +266,4 @@ set_tests_properties(vmix_rich.F90 PROPERTIES DEPENDS
 set_tests_properties(xdisplay.F90 PROPERTIES DEPENDS
   "kinds_mod.F90;blocks.F90;domain_size.F90;domain.F90;constants.F90;communicate.F90;io_types.F90;broadcast.F90;prognostic.F90;grid.F90;exit_mod.F90")
 
+include(tests.cmake)

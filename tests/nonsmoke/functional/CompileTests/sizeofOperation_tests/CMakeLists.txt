@@ -17,3 +17,4 @@ foreach(file_to_test ${TESTCODES})
     COMMAND SizeofTest_Intel -c ${CMAKE_CURRENT_SOURCE_DIR}/${file_to_test})
 endforeach()
 
+include(tests.cmake)

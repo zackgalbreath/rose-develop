@@ -184,3 +184,4 @@ foreach(testcode ${EXTRA_TESTCODES_REQUIRED_TO_PASS})
             -c ${CMAKE_CURRENT_SOURCE_DIR}/../Cxx_tests/${testcode})
 endforeach()
 
+include(tests.cmake)

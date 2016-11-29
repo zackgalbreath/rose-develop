@@ -242,3 +242,4 @@ if(enable-fortran)
 
   endforeach()
 endif()
+include(tests.cmake)

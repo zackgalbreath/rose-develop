@@ -133,3 +133,5 @@ foreach(file_to_test ${TESTCODES})
       -I${CMAKE_CURRENT_SOURCE_DIR}/../Cxx_tests
       -c ${CMAKE_CURRENT_BINARY_DIR}/${file_to_test})
 endforeach()
+
+include(tests.cmake)

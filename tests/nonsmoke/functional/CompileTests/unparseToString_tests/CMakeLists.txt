@@ -23,3 +23,4 @@ foreach(file_to_test ${ROSE__CXX_TESTS})
   set_tests_properties(ua_${file_to_test}
     PROPERTIES DEPENDS ut_${file_to_test} )
 endforeach()
+include(tests.cmake)

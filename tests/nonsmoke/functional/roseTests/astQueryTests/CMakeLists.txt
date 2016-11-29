@@ -28,3 +28,4 @@ add_test(
 )
 
 install(TARGETS testQuery testQuery2 testQuery3 DESTINATION bin)
+include(tests.cmake)

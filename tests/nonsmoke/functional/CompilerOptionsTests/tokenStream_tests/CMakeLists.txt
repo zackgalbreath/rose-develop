@@ -109,3 +109,4 @@ install(TARGETS main DESTINATION bin)
 #clean-local:
 #	rm -f *.o rose_*.[cC] *.dot test200?_*.[cC]
 #	rm -rf QMTest
+include(tests.cmake)

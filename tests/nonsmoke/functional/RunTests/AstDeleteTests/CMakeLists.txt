@@ -59,3 +59,4 @@ install(TARGETS memoryTranslator DESTINATION bin)
 #clean-local:
 #	rm -f *.o test1 *.s rm *.out rose_*.C *.C.pdf *.dot core local_test-isystemOption.C *.dump *.new
 #
+include(tests.cmake)

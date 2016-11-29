@@ -92,3 +92,4 @@ add_test(
 install(
   TARGETS tokenStreamMapping testUnparsingUsingTokenStream
   DESTINATION bin)
+include(tests.cmake)
