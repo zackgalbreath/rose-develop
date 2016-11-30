@@ -1,5 +1,3 @@
-include_directories(${QT_INCLUDES} ${Boost_INCLUDE_DIRS})
-
 add_executable( testTranslator testTranslator.C )
 target_link_libraries(testTranslator ROSE_DLL ${edg_lib} ${link_with_libraries} )
 if (enable-java)
@@ -34,6 +32,10 @@ if(bash)
     NAME check_policies
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMAND ${bash} ${CMAKE_SOURCE_DIR}/scripts/policies-checker.sh)
+endif()
+
+if (enable-binary-analysis AND NOT disable-binary-analysis-tests AND NOT with-insure AND NOT ROSE_USE_SANITIZER)
+  add_subdirectory(BinaryAnalysis)
 endif()
 
 # ${Boost_LIBRARIES}
